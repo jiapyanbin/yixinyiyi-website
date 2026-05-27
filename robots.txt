@@ -3,4 +3,4 @@ Allow: /
 Disallow: /temp/
 Disallow: /cgi-bin/
 
-Sitemap: https://yixinyiyi.serveo.net/sitemap.xml
+Sitemap: https://yixinyy.cn/sitemap.xml
