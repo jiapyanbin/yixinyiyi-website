@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>壹心壹亿（北京）文化咨询有限公司 | 会展会议 · 非遗活化 · 文艺演出 · 体育赛事 · 党建品牌</title>
+<meta name="description" content="壹心壹亿（北京）文化咨询有限公司，深耕社区文化服务，专注会展会议、非遗活化、文艺演出、摄影摄像、体育赛事、党建品牌六大板块，提供全链条一站式文化活动策划执行服务。">
+<meta name="keywords" content="文化咨询,会展会议,非遗活动,文艺演出,体育赛事,党建品牌,社区文化,活动策划,北京文化公司,壹心壹亿">
+<meta name="robots" content="index, follow">
+<meta name="author" content="壹心壹亿（北京）文化咨询有限公司">
+<link rel="canonical" href="https://yixinyiyi.serveo.net">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="壹心壹亿（北京）文化咨询有限公司 | 让每一场活动都成经典">
+<meta property="og:description" content="会展会议 · 非遗活化 · 文艺演出 · 摄影摄像 · 体育赛事 · 党建品牌，全链条一站式文化活动策划执行服务。">
+<meta property="og:url" content="https://yixinyiyi.serveo.net">
+<meta property="og:site_name" content="壹心壹亿文化咨询">
+<meta property="og:locale" content="zh_CN">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="壹心壹亿（北京）文化咨询有限公司">
+<meta name="twitter:description" content="会展会议 · 非遗活化 · 文艺演出 · 摄影摄像 · 体育赛事 · 党建品牌，全链条一站式文化活动策划执行服务。">
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "壹心壹亿（北京）文化咨询有限公司",
+  "url": "https://yixinyiyi.serveo.net",
+  "description": "深耕社区文化服务领域，专注会展会议、非遗活化、文艺演出、摄影摄像、体育赛事、党建品牌六大板块，提供全链条一站式文化活动策划执行服务。",
+  "foundingDate": "2020",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "北京",
+    "addressCountry": "CN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "13311284244",
+    "contactType": "customer service"
+  },
+  "sameAs": []
+}
+</script>
+<style>
+:root {
+    --bg: #050508;
+    --text: #ededf0;
+    --muted: #787882;
+    --gold: #c9a84c;
+    --gold-light: #e2c87a;
+    --gold-dark: #9b7828;
+    --glow: rgba(201,168,76,0.18);
+    --font: "PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:#000}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:2px}
+
+/* ===== NAV ===== */
+.nav{
+    position:fixed;top:0;left:0;width:100%;z-index:999;
+    padding:20px 8%;display:flex;justify-content:space-between;align-items:center;
+    transition:all .5s cubic-bezier(.22,.61,.36,1)
+}
+.nav.scrolled{
+    padding:12px 8%;background:rgba(5,5,8,.88);
+    backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+    border-bottom:1px solid rgba(255,255,255,.04)
+}
+.nav-logo{font-size:17px;font-weight:700;letter-spacing:2px;color:#fff;display:flex;align-items:center;gap:8px}
+.nav-logo-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{
+    text-decoration:none;color:rgba(255,255,255,.55);font-size:13px;
+    font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+    transition:color .3s;position:relative
+}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-links a::after{content:"";position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:0;height:1px;background:var(--gold);transition:width .35s}
+.nav-links a:hover::after,.nav-links a.active::after{width:70%}
+
+/* ===== AMBIENT ===== */
+.ambient{position:fixed;border-radius:50%;filter:blur(200px);pointer-events:none;z-index:0;opacity:.08}
+.ambient.a1{width:900px;height:900px;background:var(--gold);top:-300px;right:-200px;animation:drift 20s ease-in-out infinite}
+.ambient.a2{width:600px;height:600px;background:#6d28d9;bottom:10%;left:-200px;animation:drift 25s ease-in-out infinite reverse}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(40px,-30px) scale(1.08)}50%{transform:translate(-20px,20px) scale(.94)}75%{transform:translate(-30px,-10px) scale(1.04)}}
+
+/* ===== FULL-SCREEN PANELS ===== */
+.panel{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;padding:120px 8%
+}
+.panel-bg{position:absolute;inset:0;z-index:1;background-size:cover;background-position:center;transform:scale(1.08);transition:transform 8s ease}
+.panel.scrolled-in .panel-bg{transform:scale(1)}
+.panel-overlay{position:absolute;inset:0;z-index:2}
+.panel-content{position:relative;z-index:3;max-width:1200px;width:100%}
+
+/* ===== HERO ===== */
+#hero .panel-bg{background-image:url('ai5_43736.png')}
+#hero .panel-overlay{
+    background:linear-gradient(180deg,rgba(5,5,8,.15) 0%,rgba(5,5,8,.55) 55%,var(--bg) 95%),
+               radial-gradient(ellipse at 55% 40%,rgba(201,168,76,.12) 0%,transparent 60%)
+}
+#hero .panel-content{text-align:center;max-width:1000px}
+.hero-canvas{position:absolute;inset:0;z-index:3;pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:4px;color:var(--gold);margin-bottom:40px;text-transform:uppercase}
+.hero-eyebrow::before,.hero-eyebrow::after{content:"";width:24px;height:1px;background:var(--gold);opacity:.5}
+.hero-title{font-size:clamp(48px,8vw,96px);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:28px}
+.hero-title .gold-text{
+    background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 30%,var(--gold-dark) 70%,var(--gold-light) 100%);
+    background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    animation:goldShimmer 4s ease-in-out infinite
+}
+@keyframes goldShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.hero-desc{font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,.5);max-width:600px;margin:0 auto 52px;font-weight:300;letter-spacing:.5px;line-height:1.8}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{padding:18px 44px;border-radius:60px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all .4s cubic-bezier(.22,.61,.36,1);text-decoration:none;display:inline-block}
+.btn-primary{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:#000;border:none;box-shadow:0 8px 32px var(--glow),0 0 80px rgba(201,168,76,.08)}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 14px 44px rgba(201,168,76,.35),0 0 120px rgba(201,168,76,.15)}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.18)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:4}
+.hero-scroll .line{width:1px;height:48px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(8px)}}
+
+/* ===== ABOUT ===== */
+#about .panel-bg{background-image:url('https://images.unsplash.com/photo-1510070112810-d4e9a46d9e91?w=1920&h=1080&fit=crop')}
+#about .panel-overlay{background:linear-gradient(180deg,var(--bg) 0%,rgba(5,5,8,.78) 30%,rgba(5,5,8,.78) 70%,var(--bg) 100%)}
+#about .panel-content{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.about-label{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.about-title{font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:28px}
+.about-text{color:var(--muted);font-size:16px;line-height:1.9}
+.about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.stat-box{background:rgba(17,17,24,.7);border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:40px 28px;text-align:center;transition:all .5s;position:relative;overflow:hidden;backdrop-filter:blur(10px)}
+.stat-box::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .5s}
+.stat-box:hover{border-color:rgba(201,168,76,.25);transform:translateY(-6px)}
+.stat-box:hover::before{opacity:1}
+.stat-num{font-size:48px;font-weight:800;color:var(--gold);margin-bottom:8px;line-height:1}
+.stat-label{font-size:13px;color:var(--muted);letter-spacing:1px}
+
+/* ===== SERVICES ===== */
+#services .panel-bg{background-image:url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&h=1080&fit=crop')}
+#services .panel-overlay{background:linear-gradient(180deg,var(--bg) 0%,rgba(5,5,8,.82) 30%,rgba(5,5,8,.82) 70%,var(--bg) 100%)}
+.services-header{text-align:center;margin-bottom:64px}
+.services-label{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.services-title{font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:16px}
+.services-sub{font-size:17px;color:var(--muted);max-width:560px;margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;margin:0 auto}
+    max-width: 1000px;
+    margin: 0 auto;
+.svc-card{background:linear-gradient(165deg,rgba(22,22,34,.8) 0%,rgba(10,10,18,.85) 100%);border:1px solid rgba(255,255,255,.04);border-radius:24px;padding:56px 32px 44px;text-align:center;transition:all .6s cubic-bezier(.22,.61,.36,1);position:relative;overflow:hidden;backdrop-filter:blur(24px);box-shadow:0 8px 40px rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center}
+.svc-card::before{content:"";position:absolute;top:-1px;right:-1px;width:90px;height:90px;background:radial-gradient(circle at top right,rgba(201,168,76,.07) 0%,transparent 70%);border-radius:0 24px 0 0;transition:all .6s;pointer-events:none}
+.svc-card::after{content:"";position:absolute;bottom:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.25),transparent);transform:scaleX(0);transition:transform .6s cubic-bezier(.22,.61,.36,1)}
+.svc-card:hover{border-color:rgba(201,168,76,.22);transform:translateY(-12px);box-shadow:0 20px 60px rgba(201,168,76,.05),0 12px 40px rgba(0,0,0,.45)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-icon{width:42px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 30px;border-radius:1px;transition:all .5s}
+.svc-card:hover::before{background:radial-gradient(circle at top right,rgba(201,168,76,.14) 0%,transparent 60%)}
+.svc-card:hover .svc-icon{width:72px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent)}
+.svc-name{font-size:22px;font-weight:700;margin-bottom:16px;letter-spacing:-.3px;color:#f0f0f5;width:100%;text-align:center}
+.svc-desc{font-size:14px;color:var(--muted);line-height:1.9;width:100%;text-align:center}
+
+/* ===== PERFORMANCE ===== */
+#performance .panel-bg{background-image:url('https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=1920&h=1080&fit=crop')}
+#performance .panel-overlay{background:linear-gradient(180deg,var(--bg) 0%,rgba(5,5,8,.65) 30%,rgba(5,5,8,.65) 70%,var(--bg) 100%)}
+.perf-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.perf-label{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.perf-title{font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:28px}
+.perf-text{color:var(--muted);font-size:16px;line-height:1.9;margin-bottom:20px}
+.perf-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hl-box{background:rgba(17,17,24,.7);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:32px 20px;text-align:center;backdrop-filter:blur(10px);transition:all .45s}
+.hl-box:hover{border-color:rgba(201,168,76,.3);transform:translateY(-4px)}
+.hl-num{font-size:36px;font-weight:800;color:var(--gold);line-height:1}
+.hl-label{font-size:13px;color:var(--muted);margin-top:8px;letter-spacing:1px}
+
+/* ===== CASES ===== */
+#cases .panel-bg{background-image:url('https://images.unsplash.com/photo-1533640915282-0226b7ba3447?w=1920&h=1080&fit=crop')}
+#cases .panel-overlay{background:linear-gradient(180deg,var(--bg) 0%,rgba(5,5,8,.75) 25%,rgba(5,5,8,.75) 75%,var(--bg) 100%)}
+.cases-header{text-align:center;margin-bottom:64px}
+.cases-label{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.cases-title{font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:16px}
+.cases-sub{font-size:17px;color:var(--muted);max-width:560px;margin:0 auto}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.case-card{background:rgba(17,17,24,.75);border:1px solid rgba(255,255,255,.06);border-radius:28px;overflow:hidden;transition:all .5s;backdrop-filter:blur(12px)}
+.case-card:hover{border-color:rgba(201,168,76,.35);transform:translateY(-8px)}
+.case-img-wrap{overflow:hidden;position:relative}
+.case-img{width:100%;height:280px;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.22,.61,.36,1)}
+.case-card:hover .case-img{transform:scale(1.06)}
+.case-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,24,.9) 0%,transparent 40%);opacity:.7;pointer-events:none}
+.case-info{padding:24px 24px 28px}
+.case-tag{font-size:11px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:8px}
+.case-name{font-size:18px;font-weight:700}
+
+/* ===== SPORTS ===== */
+#sports .panel-bg{background-image:url('https://images.unsplash.com/photo-1461896836934-bd45ba765cf7?w=1920&h=1080&fit=crop')}
+#sports .panel-overlay{background:linear-gradient(180deg,var(--bg) 0%,rgba(5,5,8,.72) 30%,rgba(5,5,8,.72) 70%,var(--bg) 100%)}
+#sports .panel-content{text-align:center;max-width:900px;margin:0 auto}
+.sports-label{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.sports-title{font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:28px}
+.sports-text{font-size:17px;color:var(--muted);line-height:1.9;max-width:700px;margin:0 auto 48px}
+.sports-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;justify-content:center}
+.sp-card{background:linear-gradient(165deg,rgba(22,22,34,.8) 0%,rgba(10,10,18,.85) 100%);border:1px solid rgba(255,255,255,.04);border-radius:24px;padding:48px 28px;text-align:center;backdrop-filter:blur(24px);transition:all .6s cubic-bezier(.22,.61,.36,1);position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center}
+.sp-card:hover{border-color:rgba(201,168,76,.22);transform:translateY(-10px);box-shadow:0 20px 60px rgba(201,168,76,.05),0 12px 40px rgba(0,0,0,.45)}
+.sp-card::before{content:"";position:absolute;top:-1px;right:-1px;width:80px;height:80px;background:radial-gradient(circle at top right,rgba(201,168,76,.06) 0%,transparent 65%);border-radius:0 24px 0 0;transition:all .6s;pointer-events:none}
+.sp-card:hover::before{background:radial-gradient(circle at top right,rgba(201,168,76,.13) 0%,transparent 55%)}
+.sp-icon{width:42px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 22px;border-radius:1px;transition:all .5s}
+.sp-name{font-size:20px;font-weight:700;margin-bottom:12px;color:#f0f0f5;letter-spacing:-.2px;width:100%;text-align:center}
+.sp-desc{font-size:14px;color:var(--muted);line-height:1.9;width:100%;text-align:center}
+
+/* ===== PARTY ===== */
+#party .panel-bg{background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop')}
+#party .panel-overlay{background:linear-gradient(180deg,var(--bg) 0%,rgba(5,5,8,.7) 30%,rgba(5,5,8,.7) 70%,var(--bg) 100%)}
+#party .panel-content{text-align:center;max-width:1000px;margin:0 auto}
+.party-label{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.party-title{font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:28px}
+.party-sub{font-size:17px;color:var(--muted);max-width:600px;margin:0 auto 64px;line-height:1.8}
+.party-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;justify-content:center}
+.party-card{background:linear-gradient(165deg,rgba(22,22,34,.8) 0%,rgba(10,10,18,.85) 100%);border:1px solid rgba(255,255,255,.04);border-radius:24px;padding:52px 36px;text-align:center;transition:all .6s cubic-bezier(.22,.61,.36,1);position:relative;overflow:hidden;backdrop-filter:blur(24px);box-shadow:0 8px 40px rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center}
+.party-card:hover{border-color:rgba(201,168,76,.22);transform:translateY(-10px);box-shadow:0 20px 60px rgba(201,168,76,.05),0 12px 40px rgba(0,0,0,.45)}
+.party-card-num{font-size:72px;font-weight:800;color:rgba(201,168,76,.04);position:absolute;top:8px;right:16px;line-height:1;pointer-events:none;transition:all .6s}
+.party-card:hover .party-card-num{color:rgba(201,168,76,.1);transform:scale(1.05)}
+.party-card::before{content:"";position:absolute;top:-1px;right:-1px;width:80px;height:80px;background:radial-gradient(circle at top right,rgba(201,168,76,.06) 0%,transparent 65%);border-radius:0 24px 0 0;transition:all .6s;pointer-events:none}
+.party-card:hover::before{background:radial-gradient(circle at top right,rgba(201,168,76,.13) 0%,transparent 55%)}
+.party-icon{width:42px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 26px;border-radius:1px;transition:all .5s}
+.party-card-title{font-size:20px;font-weight:700;margin-bottom:16px;color:#f0f0f5;letter-spacing:-.2px;width:100%;text-align:center}
+.party-card-desc{font-size:14px;color:var(--muted);line-height:1.9;width:100%;text-align:center}
+
+/* ===== CONTACT ===== */
+#contact .panel-bg{background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&h=1080&fit=crop')}
+#contact .panel-overlay{background:linear-gradient(180deg,var(--bg) 0%,rgba(5,5,8,.7) 30%,rgba(5,5,8,.7) 70%,var(--bg) 100%)}
+#contact .panel-content{text-align:center;max-width:800px;margin:0 auto}
+.contact-label{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.contact-title{font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:28px}
+.contact-sub{font-size:17px;color:var(--muted);margin-bottom:64px}
+.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ct-item{background:rgba(17,17,24,.7);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:36px 20px;text-align:center;backdrop-filter:blur(10px);transition:all .4s}
+.ct-item:hover{background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.25)}
+.ct-label{font-size:11px;letter-spacing:3px;color:var(--gold);margin-bottom:12px;text-transform:uppercase}
+.ct-value{font-size:17px;font-weight:600}
+.ct-value a{color:var(--text);text-decoration:none;transition:color .3s}
+.ct-value a:hover{color:var(--gold)}
+
+/* ===== FOOTER ===== */
+.footer{padding:64px 8% 36px;text-align:center;position:relative;z-index:1;background:var(--bg)}
+.footer-brand{font-size:20px;font-weight:700;letter-spacing:2px;margin-bottom:8px}
+.footer-brand span{color:var(--gold)}
+.footer-tagline{font-size:13px;color:var(--muted);margin-bottom:28px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.2)}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(60px);transition:all 1s cubic-bezier(.22,.61,.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+@media(max-width:900px){
+    .nav-links{display:none}
+    .panel{padding:100px 5%}
+    #about .panel-content{grid-template-columns:1fr;gap:48px}
+    .services-grid{grid-template-columns:1fr;max-width:100%}
+    .cases-grid{grid-template-columns:1fr}
+    .perf-layout{grid-template-columns:1fr;gap:48px}
+    .sports-grid{grid-template-columns:1fr}
+    .party-grid{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:repeat(2,1fr)}
+    #contact .panel-content{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="ambient a1"></div>
+<div class="ambient a2"></div>
+
+<nav class="nav" id="nav">
+    <div class="nav-logo"><span class="nav-logo-dot"></span>壹心壹亿</div>
+    <ul class="nav-links">
+        <li><a href="#hero" class="active">首页</a></li>
+        <li><a href="#about">关于</a></li>
+        <li><a href="#services">服务</a></li>
+        <li><a href="#performance">演出</a></li>
+        <li><a href="#cases">案例</a></li>
+        <li><a href="#sports">赛事</a></li>
+        <li><a href="#party">党建</a></li>
+        <li><a href="#contact">联系</a></li>
+    </ul>
+</nav>
+
+<!-- ====== HERO ====== -->
+<section class="panel" id="hero">
+    <div class="panel-bg"></div>
+    <div class="panel-overlay"></div>
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="panel-content" style="text-align:center;max-width:1000px">
+        <div class="hero-eyebrow reveal">CULTURAL CONSULTING</div>
+        <h1 class="hero-title reveal d1">让每一场活动<br><span class="gold-text">都成经典</span></h1>
+        <p class="hero-desc reveal d2">会展会议 · 非遗活化 · 文艺演出 · 摄影摄像 · 体育赛事 · 党建品牌<br>以专业策划执行能力，打造高品质文化活动</p>
+        <div class="hero-btns reveal d3">
+            <a href="#contact" class="btn btn-primary">立即咨询</a>
+            <a href="#services" class="btn btn-outline">探索服务</a>
+        </div>
+    </div>
+    <div class="hero-scroll"><div class="line"></div></div>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<section class="panel" id="about">
+    <div class="panel-bg"></div>
+    <div class="panel-overlay"></div>
+    <div class="panel-content">
+        <div class="reveal">
+            <div class="about-label">01 / 关于我们</div>
+            <h2 class="about-title">专业策划<br>品质呈现</h2>
+            <p class="about-text">壹心壹亿（北京）文化咨询有限公司，深耕社区文化服务领域，专注于会展会议、非遗活化、文艺演出、体育赛事、摄影摄像、党建品牌等六大板块，以全链条一站式服务，为客户打造高品质文化活动。</p>
+        </div>
+        <div class="about-stats">
+            <div class="stat-box reveal d1"><div class="stat-num">5+</div><div class="stat-label">年行业深耕</div></div>
+            <div class="stat-box reveal d2"><div class="stat-num">200+</div><div class="stat-label">场活动落地</div></div>
+            <div class="stat-box reveal d3"><div class="stat-num">30+</div><div class="stat-label">合作街道社区</div></div>
+            <div class="stat-box reveal d4"><div class="stat-num">6</div><div class="stat-label">大服务板块</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section class="panel" id="services">
+    <div class="panel-bg"></div>
+    <div class="panel-overlay"></div>
+    <div class="panel-content">
+        <div class="services-header reveal">
+            <div class="services-label">02 / 服务项目</div>
+            <h2 class="services-title">六大服务板块</h2>
+            <p class="services-sub">覆盖文化建设全场景，一站式解决活动需求</p>
+        </div>
+        <div class="services-grid">
+            <div class="svc-card reveal"><div class="svc-icon"></div><div class="svc-name">会展会议</div><div class="svc-desc">峰会、论坛、发布会全流程执行，从策划到舞台搭建，一站式解决会展需求。</div></div>
+            <div class="svc-card reveal d1"><div class="svc-icon"></div><div class="svc-name">非遗活动</div><div class="svc-desc">手工体验、市集策划、传统表演，让非遗文化走进社区生活。</div></div>
+            <div class="svc-card reveal d2"><div class="svc-icon"></div><div class="svc-name">文艺演出</div><div class="svc-desc">舞台演出、节庆晚会、社区汇演，专业舞美灯光音响支持。</div></div>
+            <div class="svc-card reveal"><div class="svc-icon"></div><div class="svc-name">摄影摄像</div><div class="svc-desc">活动跟拍、宣传片制作、航拍航摄、直播推流，专业设备+资深团队。</div></div>
+            <div class="svc-card reveal d1"><div class="svc-icon"></div><div class="svc-name">体育赛事</div><div class="svc-desc">企业运动会、社区联赛、趣味竞技，专业赛事策划与现场执行。</div></div>
+            <div class="svc-card reveal d2"><div class="svc-icon"></div><div class="svc-name">党建孵化</div><div class="svc-desc">红色活动、品牌打造、阵地建设，打造标准化特色化党建服务体系。</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== PERFORMANCE ====== -->
+<section class="panel" id="performance">
+    <div class="panel-bg"></div>
+    <div class="panel-overlay"></div>
+    <div class="panel-content">
+        <div class="perf-layout">
+            <div class="reveal">
+                <div class="perf-label">03 / 演出承接</div>
+                <h2 class="perf-title">舞台之上<br>每一帧都是专业</h2>
+                <p class="perf-text">承接各类文艺演出、节庆晚会、社区汇演活动的策划与执行。从节目编排到舞台搭建，从灯光音响到现场导演，提供全流程专业支持。</p>
+                <p class="perf-text">专业舞美设计、高清LED屏幕、线阵音响系统，让每一场演出都达到剧场级效果。</p>
+            </div>
+            <div class="perf-highlights reveal d2">
+                <div class="hl-box"><div class="hl-num">50+</div><div class="hl-label">场演出执行</div></div>
+                <div class="hl-box"><div class="hl-num">4K</div><div class="hl-label">全流程摄录</div></div>
+                <div class="hl-box"><div class="hl-num">1000+</div><div class="hl-label">观众承载经验</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== CASES ====== -->
+<section class="panel" id="cases">
+    <div class="panel-bg"></div>
+    <div class="panel-overlay"></div>
+    <div class="panel-content">
+        <div class="cases-header reveal">
+            <div class="cases-label">04 / 案例展示</div>
+            <h2 class="cases-title">经典项目回顾</h2>
+            <p class="cases-sub">六大板块实战案例，每一个项目都是品质的见证</p>
+        </div>
+        <div class="cases-grid">
+            <div class="case-card reveal"><div class="case-img-wrap"><img class="case-img" src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&h=400&fit=crop" loading="lazy"></div><div class="case-info"><div class="case-tag">非遗传承</div><div class="case-name">传统手工艺体验活动</div></div></div>
+            <div class="case-card reveal d1"><div class="case-img-wrap"><img class="case-img" src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop" loading="lazy"></div><div class="case-info"><div class="case-tag">会展会议</div><div class="case-name">行业峰会全流程执行</div></div></div>
+            <div class="case-card reveal d2"><div class="case-img-wrap"><img class="case-img" src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=600&h=400&fit=crop" loading="lazy"></div><div class="case-info"><div class="case-tag">文艺演出</div><div class="case-name">社区文艺汇演盛典</div></div></div>
+            <div class="case-card reveal"><div class="case-img-wrap"><img class="case-img" src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=400&fit=crop" loading="lazy"></div><div class="case-info"><div class="case-tag">摄影摄像</div><div class="case-name">大型活动全程影像记录</div></div></div>
+            <div class="case-card reveal d1"><div class="case-img-wrap"><img class="case-img" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&h=400&fit=crop" loading="lazy"></div><div class="case-info"><div class="case-tag">体育赛事</div><div class="case-name">企业职工运动会</div></div></div>
+            <div class="case-card reveal d2"><div class="case-img-wrap"><img class="case-img" src="https://images.unsplash.com/photo-1529070538774-1843cb1ad174?w=600&h=400&fit=crop" loading="lazy"></div><div class="case-info"><div class="case-tag">党建品牌</div><div class="case-name">红色党建阵地建设</div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== SPORTS ====== -->
+<section class="panel" id="sports">
+    <div class="panel-bg"></div>
+    <div class="panel-overlay"></div>
+    <div class="panel-content">
+        <div class="reveal">
+            <div class="sports-label">05 / 体育赛事</div>
+            <h2 class="sports-title">专业赛事承接</h2>
+            <p class="sports-text">从企业职工运动会到社区体育联赛，从趣味竞技到专业赛事，提供全流程策划与现场执行。赛程编排、场地布置、裁判协调、安全保障，一站式搞定。</p>
+        </div>
+        <div class="sports-grid">
+            <div class="sp-card reveal d1"><div class="sp-icon"></div><div class="sp-name">企业运动会</div><div class="sp-desc">田径、球类、趣味项目，定制化赛程与团队建设融合</div></div>
+            <div class="sp-card reveal d2"><div class="sp-icon"></div><div class="sp-name">社区联赛</div><div class="sp-desc">篮球、羽毛球、乒乓球，专业裁判与赛事运营</div></div>
+            <div class="sp-card reveal d3"><div class="sp-icon"></div><div class="sp-name">趣味竞技</div><div class="sp-desc">亲子运动会、定向越野、团队挑战赛，全民参与零门槛</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== PARTY ====== -->
+<section class="panel" id="party">
+    <div class="panel-bg"></div>
+    <div class="panel-overlay"></div>
+    <div class="panel-content">
+        <div class="reveal">
+            <div class="party-label">06 / 党建服务</div>
+            <h2 class="party-title">红色引擎 · 品牌力量</h2>
+            <p class="party-sub">专业党建品牌打造、红色活动策划、党建阵地建设，助力政企单位打造特色党建品牌</p>
+        </div>
+        <div class="party-grid">
+            <div class="party-card reveal d1"><div class="party-card-num">01</div><div class="party-icon"></div><div class="party-card-title">党建品牌打造</div><div class="party-card-desc">从品牌定位到视觉体系，建立可传承、可推广的特色党建品牌形象</div></div>
+            <div class="party-card reveal d2"><div class="party-card-num">02</div><div class="party-icon"></div><div class="party-card-title">红色活动策划</div><div class="party-card-desc">主题学习、红色参访、知识竞赛，形式创新让党建活动深入人心</div></div>
+            <div class="party-card reveal d3"><div class="party-card-num">03</div><div class="party-icon"></div><div class="party-card-title">党建阵地建设</div><div class="party-card-desc">从空间设计到内容陈列，打造标准化、有温度的党建活动阵地</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section class="panel" id="contact">
+    <div class="panel-bg"></div>
+    <div class="panel-overlay"></div>
+    <div class="panel-content">
+        <div class="reveal">
+            <div class="contact-label">07 / 联系我们</div>
+            <h2 class="contact-title">期待与您合作</h2>
+            <p class="contact-sub">用专业与服务，为您打造每一场经典</p>
+        </div>
+        <div class="contact-grid">
+            <div class="ct-item reveal d1"><div class="ct-label">联系人</div><div class="ct-value">焦彦斌</div></div>
+            <div class="ct-item reveal d2"><div class="ct-label">电话</div><div class="ct-value"><a href="tel:13311284244">13311284244</a></div></div>
+            <div class="ct-item reveal d3"><div class="ct-label">邮箱</div><div class="ct-value">462036912@qq.com</div></div>
+            <div class="ct-item reveal d4"><div class="ct-label">地址</div><div class="ct-value">北京市</div></div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-brand">壹心壹亿<span> · </span>文化咨询</div>
+    <div class="footer-tagline">让每一场活动都成经典</div>
+    <div class="footer-copy">&copy; 2025 壹心壹亿（北京）文化咨询有限公司 版权所有</div>
+</footer>
+
+<script>
+// Nav
+const nav=document.getElementById('nav');
+const panels=['hero','about','services','performance','cases','sports','party','contact'];
+const links=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled',window.scrollY>60);
+    let cur='';
+    panels.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-300)cur=id});
+    links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+
+// Panel scroll-in
+const panelObserver=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('scrolled-in')});
+},{threshold:.15});
+document.querySelectorAll('.panel').forEach(el=>panelObserver.observe(el));
+
+// Reveal
+const revObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+// Hero particles
+const canvas=document.getElementById('heroCanvas'),ctx=canvas.getContext('2d');
+let w,h,particles=[];
+function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight}
+resize();window.addEventListener('resize',resize);
+class Particle{
+    constructor(){this.reset(true)}
+    reset(init){this.x=Math.random()*w;this.y=init?Math.random()*h:h+20;this.size=Math.random()*1.8+.4;this.speedY=-(Math.random()*.5+.15);this.speedX=(Math.random()-.5)*.25;this.opacity=Math.random()*.5+.1}
+    update(){this.x+=this.speedX;this.y+=this.speedY;if(this.y<-20||this.x<-20||this.x>w+20)this.reset(false)}
+    draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=`rgba(201,168,76,${this.opacity})`;ctx.fill()}
+}
+for(let i=0;i<120;i++)particles.push(new Particle());
+function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animate)}
+animate();
+</script>
+</body>
+</html>

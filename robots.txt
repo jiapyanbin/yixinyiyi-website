@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /temp/
+Disallow: /cgi-bin/
+
+Sitemap: https://yixinyiyi.serveo.net/sitemap.xml
