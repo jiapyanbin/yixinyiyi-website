@@ -117,12 +117,28 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none}
+a,button,input,textarea,.btn{cursor:none}
+input[type="text"],input[type="email"],input[type="tel"],input[type="search"],textarea{cursor:auto}
 ::selection{background:var(--gold);color:#000}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:2px}
+/* ===== CUSTOM CURSOR ===== */
+#cursorDot.hover{width:36px;height:36px;background:rgba(201,168,76,.6);box-shadow:0 0 30px rgba(201,168,76,.35)}
+@media(max-width:900px){#cursorDot{display:none}body{cursor:auto}a,button,input,textarea,.btn{cursor:auto}}
 
+
+
+/* ===== LOADING OVERLAY ===== */
+#loading-overlay{position:fixed;inset:0;background:#050508;z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .5s ease}
+#loading-overlay.hidden{opacity:0;pointer-events:none}
+#loading-overlay.done{display:none}
+.loader-logo{width:auto;height:80px;animation:logoBreath 1.5s ease-in-out infinite}
+@keyframes logoBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.loader-bar-wrap{width:120px;height:2px;margin-top:32px;border-radius:1px;overflow:hidden;background:rgba(201,168,76,.12)}
+.loader-bar{width:40px;height:100%;border-radius:1px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light),var(--gold-dark));animation:loaderFlow 1.2s ease-in-out infinite}
+@keyframes loaderFlow{0%{transform:translateX(-40px)}100%{transform:translateX(120px)}}
 /* ===== NAV ===== */
 .nav{
     position:fixed;top:0;left:0;width:100%;z-index:999;
@@ -341,6 +357,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 </style>
 </head>
 <body>
+
+<!-- Loading Overlay -->
+<div id="loading-overlay">
+    <img class="loader-logo" src="logo.png" alt="壹心壹亿">
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+<!-- Custom Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
 
 <div class="ambient a1"></div>
 <div class="ambient a2"></div>
@@ -572,5 +596,125 @@ animate();
     s.parentNode.insertBefore(bp, s);
 })();
 </script>
+<script>
+// ===== 1. Custom Cursor =====
+(function(){
+    const dot = document.getElementById('cursorDot');
+    if(!dot) return;
+    let mx = 0, my = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function tick(){
+        dot.style.left = mx + 'px';
+        dot.style.top = my + 'px';
+        requestAnimationFrame(tick);
+    }
+    tick();
+    const hoverEls = document.querySelectorAll('a, button, .btn, .case-card, .sp-card, .svc-card, .stat-box, .hl-box, .party-card, .ct-item');
+    hoverEls.forEach(el => {
+        el.addEventListener('mouseenter', () => dot.classList.add('hover'));
+        el.addEventListener('mouseleave', () => dot.classList.remove('hover'));
+    });
+})();
+
+// ===== 2. Number Scroll Animation =====
+(function(){
+    function parseNum(el){
+        const raw = el.textContent.trim();
+        const match = raw.match(/^([\d.]+)(.*)$/);
+        if(!match) return null;
+        return { target: parseFloat(match[1]), suffix: match[2], el: el };
+    }
+    function animateNum(item, duration){
+        const start = performance.now();
+        const { target, suffix, el } = item;
+        const isFloat = target % 1 !== 0;
+        function frame(now){
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // ease-out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = eased * target;
+            el.textContent = (isFloat ? current.toFixed(2) : Math.floor(current)) + suffix;
+            if(progress < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+    }
+    const numEls = document.querySelectorAll('.stat-num, .hl-num');
+    const items = [];
+    numEls.forEach(el => {
+        const parsed = parseNum(el);
+        if(parsed) items.push(parsed);
+    });
+    if(items.length === 0) return;
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                const el = entry.target;
+                const item = items.find(i => i.el === el);
+                if(item && !el.dataset.counted){
+                    el.dataset.counted = '1';
+                    animateNum(item, 2000);
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+    items.forEach(i => obs.observe(i.el));
+})();
+
+// ===== 3. Card 3D Tilt =====
+(function(){
+    const cardSelectors = ['.case-card', '.sp-card', '.svc-card', '.stat-box', '.hl-box', '.party-card', '.ct-item'];
+    const maxAngle = 10;
+    let isMobile = window.matchMedia('(max-width: 900px)').matches;
+    const mq = window.matchMedia('(max-width: 900px)');
+    mq.addEventListener('change', e => { isMobile = e.matches; });
+    function handleEnter(card){
+        card.style.transition = 'none';
+    }
+    function handleMove(e, card){
+        if(isMobile) return;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const rotX = ((y - cy) / cy) * -maxAngle;
+        const rotY = ((x - cx) / cx) * maxAngle;
+        card.style.transform = `perspective(800px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+        card.style.transition = 'none';
+    }
+    function handleLeave(card){
+        card.style.transition = 'transform .6s cubic-bezier(.22,.61,.36,1)';
+        card.style.transform = '';
+    }
+    cardSelectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach(card => {
+            card.addEventListener('mouseenter', () => handleEnter(card));
+            card.addEventListener('mousemove', e => handleMove(e, card));
+            card.addEventListener('mouseleave', () => handleLeave(card));
+        });
+    });
+})();
+
+// ===== 4. Loading Overlay =====
+(function(){
+    const overlay = document.getElementById('loading-overlay');
+    if(!overlay) return;
+    function hide(){
+        if(overlay.classList.contains('hidden')) return;
+        overlay.classList.add('hidden');
+        setTimeout(() => { overlay.classList.add('done'); }, 500);
+    }
+    // DOMContentLoaded: fastest trigger
+    if(document.readyState !== 'loading'){
+        hide();
+    } else {
+        document.addEventListener('DOMContentLoaded', () => { setTimeout(hide, 200); });
+    }
+    // fallback: force hide after 5s
+    setTimeout(hide, 5000);
+})();
+</script>
+
 </body>
 </html>
