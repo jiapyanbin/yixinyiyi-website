@@ -117,16 +117,13 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none}
-a,button,input,textarea,.btn{cursor:none}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 input[type="text"],input[type="email"],input[type="tel"],input[type="search"],textarea{cursor:auto}
 ::selection{background:var(--gold);color:#000}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:2px}
-/* ===== CUSTOM CURSOR ===== */
-#cursorDot.hover{width:36px;height:36px;background:rgba(201,168,76,.6);box-shadow:0 0 30px rgba(201,168,76,.35)}
-@media(max-width:900px){#cursorDot{display:none}body{cursor:auto}a,button,input,textarea,.btn{cursor:auto}}
+@media(max-width:900px){body{cursor:auto}a,button,input,textarea,.btn{cursor:auto}}
 
 
 
@@ -363,9 +360,6 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="search"],te
     <img class="loader-logo" src="logo.png" alt="壹心壹亿">
     <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
 </div>
-<!-- Custom Cursor -->
-<div class="cursor-dot" id="cursorDot"></div>
-
 <div class="ambient a1"></div>
 <div class="ambient a2"></div>
 
@@ -597,25 +591,6 @@ animate();
 })();
 </script>
 <script>
-// ===== 1. Custom Cursor =====
-(function(){
-    const dot = document.getElementById('cursorDot');
-    if(!dot) return;
-    let mx = 0, my = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    function tick(){
-        dot.style.left = mx + 'px';
-        dot.style.top = my + 'px';
-        requestAnimationFrame(tick);
-    }
-    tick();
-    const hoverEls = document.querySelectorAll('a, button, .btn, .case-card, .sp-card, .svc-card, .stat-box, .hl-box, .party-card, .ct-item');
-    hoverEls.forEach(el => {
-        el.addEventListener('mouseenter', () => dot.classList.add('hover'));
-        el.addEventListener('mouseleave', () => dot.classList.remove('hover'));
-    });
-})();
-
 // ===== 2. Number Scroll Animation =====
 (function(){
     function parseNum(el){
