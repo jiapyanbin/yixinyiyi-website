@@ -304,6 +304,48 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="search"],te
 .party-card-title{font-size:20px;font-weight:700;margin-bottom:16px;color:#f0f0f5;letter-spacing:-.2px;width:100%;text-align:center}
 .party-card-desc{font-size:14px;color:var(--muted);line-height:1.9;width:100%;text-align:center}
 
+/* ===== PLAN GENERATOR ===== */
+#plan-generator .panel-bg{background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop')}
+#plan-generator .panel-overlay{background:linear-gradient(180deg,var(--bg) 0%,rgba(5,5,8,.78) 30%,rgba(5,5,8,.78) 70%,var(--bg) 100%)}
+.plan-header{text-align:center;margin-bottom:48px}
+.plan-label{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.plan-title{font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:16px}
+.plan-sub{font-size:17px;color:var(--muted);max-width:560px;margin:0 auto}
+.plan-layout{display:flex;gap:40px;align-items:flex-start}
+.plan-form{flex:0 0 42%;background:rgba(17,17,24,.75);border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:40px 36px;backdrop-filter:blur(16px)}
+.plan-form-group{margin-bottom:20px}
+.plan-form-label{display:block;font-size:13px;color:var(--gold);margin-bottom:8px;font-weight:600;letter-spacing:.5px}
+.plan-form select,.plan-form input,.plan-form textarea{width:100%;padding:14px 16px;background:rgba(5,5,8,.6);border:1px solid rgba(255,255,255,.1);border-radius:12px;color:var(--text);font-size:15px;font-family:var(--font);outline:none;transition:border-color .3s;-webkit-appearance:none;appearance:none}
+.plan-form select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23c9a84c'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.plan-form select:focus,.plan-form input:focus,.plan-form textarea:focus{border-color:var(--gold)}
+.plan-form textarea{resize:vertical;min-height:100px}
+.plan-btn{width:100%;padding:18px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:#000;border:none;border-radius:14px;font-size:16px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .4s cubic-bezier(.22,.61,.36,1);box-shadow:0 8px 32px var(--glow)}
+.plan-btn:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(201,168,76,.35)}
+.plan-result{flex:1;min-height:500px}
+.plan-result-placeholder{display:flex;align-items:center;justify-content:center;height:100%;min-height:400px;background:rgba(17,17,24,.5);border:1px solid rgba(255,255,255,.04);border-radius:24px;backdrop-filter:blur(12px);color:var(--muted);font-size:16px;text-align:center;padding:40px}
+.plan-result-card{background:rgba(17,17,24,.75);border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:36px 32px;backdrop-filter:blur(16px);animation:fadeInUp .6s cubic-bezier(.22,.61,.36,1)}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.plan-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(201,168,76,.2)}
+.plan-card-date{font-size:13px;color:var(--muted)}
+.plan-card-tag{display:inline-block;padding:6px 16px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.25);border-radius:20px;font-size:12px;color:var(--gold);letter-spacing:1px}
+.plan-module{margin-bottom:28px}
+.plan-module-title{font-size:16px;font-weight:700;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.plan-module-title::before{content:"";width:4px;height:18px;background:var(--gold);border-radius:2px;flex-shrink:0}
+.plan-module-content{font-size:14px;color:var(--muted);line-height:1.9}
+.plan-module-content ul{list-style:none;padding:0}
+.plan-module-content ul li{padding:4px 0;padding-left:16px;position:relative}
+.plan-module-content ul li::before{content:"·";position:absolute;left:0;color:var(--gold)}
+.plan-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.15),transparent);margin:24px 0}
+.plan-cta{text-align:center;padding:20px;background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.12);border-radius:16px;margin-top:24px}
+.plan-cta-text{font-size:14px;color:var(--muted)}
+.plan-cta-phone{font-size:22px;font-weight:700;color:var(--gold);margin-top:8px;letter-spacing:1px}
+@media(max-width:900px){
+    .plan-layout{flex-direction:column}
+    .plan-form{flex:unset;width:100%}
+    .plan-result{width:100%;min-height:auto}
+    .plan-result-placeholder{min-height:200px}
+}
+
 /* ===== CONTACT ===== */
 #contact .panel-bg{background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&h=1080&fit=crop')}
 #contact .panel-overlay{background:linear-gradient(180deg,var(--bg) 0%,rgba(5,5,8,.7) 30%,rgba(5,5,8,.7) 70%,var(--bg) 100%)}
@@ -373,6 +415,7 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="search"],te
         <li><a href="#cases">案例</a></li>
         <li><a href="#sports">赛事</a></li>
         <li><a href="#party">党建</a></li>
+        <li><a href="#plan-generator">方案生成</a></li>
         <li><a href="#contact">联系</a></li>
     </ul>
 </nav>
@@ -512,6 +555,69 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="search"],te
     </div>
 </section>
 
+<!-- ====== PLAN GENERATOR ====== -->
+<section class="panel" id="plan-generator">
+    <div class="panel-bg"></div>
+    <div class="panel-overlay"></div>
+    <div class="panel-content">
+        <div class="plan-header reveal">
+            <div class="plan-label">10秒出方案</div>
+            <h2 class="plan-title">智能活动策划</h2>
+            <p class="plan-sub">填写活动基本信息，即时生成结构化策划方案</p>
+        </div>
+        <div class="plan-layout reveal d1">
+            <div class="plan-form">
+                <div class="plan-form-group">
+                    <label class="plan-form-label">活动类型</label>
+                    <select id="planType">
+                        <option value="">请选择活动类型</option>
+                        <option value="会展会议">会展会议</option>
+                        <option value="非遗活动">非遗活动</option>
+                        <option value="文艺演出">文艺演出</option>
+                        <option value="摄影摄像">摄影摄像</option>
+                        <option value="体育赛事">体育赛事</option>
+                        <option value="党建活动">党建活动</option>
+                    </select>
+                </div>
+                <div class="plan-form-group">
+                    <label class="plan-form-label">活动规模</label>
+                    <select id="planScale">
+                        <option value="">请选择活动规模</option>
+                        <option value="50人以下">50人以下</option>
+                        <option value="50-200人">50-200人</option>
+                        <option value="200-500人">200-500人</option>
+                        <option value="500人以上">500人以上</option>
+                    </select>
+                </div>
+                <div class="plan-form-group">
+                    <label class="plan-form-label">预算范围</label>
+                    <select id="planBudget">
+                        <option value="">请选择预算范围</option>
+                        <option value="5万以下">5万以下</option>
+                        <option value="5-15万">5-15万</option>
+                        <option value="15-30万">15-30万</option>
+                        <option value="30万以上">30万以上</option>
+                    </select>
+                </div>
+                <div class="plan-form-group">
+                    <label class="plan-form-label">期望日期</label>
+                    <input type="date" id="planDate">
+                </div>
+                <div class="plan-form-group">
+                    <label class="plan-form-label">补充需求 <span style="color:var(--muted);font-weight:400;font-size:12px">（可选）</span></label>
+                    <textarea id="planNote" placeholder="如有特殊场地、主题风格等需求请在此说明..."></textarea>
+                </div>
+                <button class="plan-btn" onclick="generatePlan()">⚡ 10秒生成方案</button>
+            </div>
+            <div class="plan-result" id="planResult">
+                <div class="plan-result-placeholder" id="planPlaceholder">
+                    填写左侧信息，即刻生成专属活动方案
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ====== CONTACT ====== -->
 <section class="panel" id="contact">
     <div class="panel-bg"></div>
@@ -540,7 +646,7 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="search"],te
 <script>
 // Nav
 const nav=document.getElementById('nav');
-const panels=['hero','about','services','performance','cases','sports','party','contact'];
+const panels=['hero','about','services','performance','cases','sports','party','plan-generator','contact'];
 const links=document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll',()=>{
     nav.classList.toggle('scrolled',window.scrollY>60);
@@ -689,6 +795,80 @@ animate();
     // fallback: force hide after 5s
     setTimeout(hide, 5000);
 })();
+
+// ===== 5. Plan Generator =====
+const planDB={
+    equipment:{
+        '会展会议':['LED屏','线阵音响','灯光架','舞台','签到系统','直播设备','同传设备','会议话筒'],
+        '非遗活动':['展陈道具','手工材料包','音响设备','展板展架','投影设备','互动装置'],
+        '文艺演出':['LED屏','线阵音响','灯光架','舞台','烟雾机','追光灯','返听音箱'],
+        '摄影摄像':['4K摄像机','航拍无人机','稳定器','直播推流设备','灯光套件','收音设备'],
+        '体育赛事':['计时系统','音响广播','记分牌','场地围挡','裁判设备','医疗保障器材'],
+        '党建活动':['LED屏','音响设备','展板展架','投影设备','签到系统','党建物料包']
+    },
+    personnel:{
+        '50人以下':[{role:'总监',count:1},{role:'策划',count:1},{role:'执行',count:1},{role:'灯光音响',count:1},{role:'摄影摄像',count:1},{role:'后勤',count:1}],
+        '50-200人':[{role:'总监',count:1},{role:'策划',count:2},{role:'执行',count:2},{role:'灯光音响',count:2},{role:'摄影摄像',count:1},{role:'后勤',count:2}],
+        '200-500人':[{role:'总监',count:1},{role:'策划',count:3},{role:'执行',count:4},{role:'灯光音响',count:3},{role:'摄影摄像',count:2},{role:'后勤',count:3}],
+        '500人以上':[{role:'总监',count:2},{role:'策划',count:4},{role:'执行',count:6},{role:'灯光音响',count:4},{role:'摄影摄像',count:3},{role:'后勤',count:5}]
+    },
+    budgetMid:{'5万以下':3,'5-15万':10,'15-30万':22.5,'30万以上':40},
+    suggestions:{
+        '会展会议':['建议安排暖场节目提升开场氛围','设置茶歇交流区增强嘉宾互动','预留媒体专访区便于品牌传播'],
+        '非遗活动':['建议安排非遗传承人现场演示','设置DIY体验区增强观众参与感','配合短视频传播扩大活动影响力'],
+        '文艺演出':['建议安排暖场节目提升氛围','增设观众互动环节提升参与度','安排专业录播便于二次传播'],
+        '摄影摄像':['建议提前踩点确定最佳拍摄机位','安排航拍视角丰富画面层次','提供实时云相册方便嘉宾分享'],
+        '体育赛事':['建议安排开幕仪式提升仪式感','设置互动游戏区活跃现场气氛','配备医疗急救点保障参赛安全'],
+        '党建活动':['建议融入红色文创元素增强教育效果','安排老党员访谈环节传承红色基因','制作活动纪念册强化党建成果']
+    },
+    timePlan(days){
+        const d=Math.max(days,14);
+        const prep=Math.round(d*0.5),exec=Math.round(d*0.3),wrap=d-prep-exec;
+        return {
+            prep,exec,wrap,
+            prepNodes:['需求沟通与方案确认','场地勘察与合同签订','供应商筛选与设备预定','宣传物料设计与制作'],
+            execNodes:['活动现场搭建与设备调试','全流程彩排与流程确认','活动正式执行与现场调度','实时应急响应与流程把控'],
+            wrapNodes:['设备撤场与物资清点','活动影像资料整理交付','项目总结报告提交']
+        };
+    }
+};
+function generatePlan(){
+    const type=document.getElementById('planType').value;
+    const scale=document.getElementById('planScale').value;
+    const budget=document.getElementById('planBudget').value;
+    const dateVal=document.getElementById('planDate').value;
+    const note=document.getElementById('planNote').value.trim();
+    if(!type||!scale||!budget){alert('请填写活动类型、活动规模和预算范围');return;}
+    const eq=planDB.equipment[type]||[];
+    const pList=planDB.personnel[scale]||[];
+    const mid=planDB.budgetMid[budget]||10;
+    const sug=planDB.suggestions[type]||[];
+    let days=30;
+    if(dateVal){const td=new Date(),ed=new Date(dateVal+'T00:00:00');days=Math.ceil((ed-td)/(1000*60*60*24));if(days<1)days=1;}
+    const tp=planDB.timePlan(days);
+    const pTotal=pList.reduce((s,i)=>s+i.count,0);
+    const todayStr=new Date().toISOString().slice(0,10);
+    const overview=type+'全案策划方案';
+    function li(items){return items.map(i=>'<li>'+i+'</li>').join('');}
+    function pers(items){return items.map(i=>i.role+' '+i.count+'人').join('、');}
+    const html='<div class="plan-result-card">'
+        +'<div class="plan-card-header"><span class="plan-card-date">生成日期：'+todayStr+'</span><span class="plan-card-tag">'+type+'</span></div>'
+        +'<div class="plan-module"><div class="plan-module-title">方案概览</div><div class="plan-module-content">'+overview+'</div></div>'
+        +'<div class="plan-divider"></div>'
+        +'<div class="plan-module"><div class="plan-module-title">时间规划</div><div class="plan-module-content">距活动约 <strong style="color:#fff">'+days+'</strong> 天，分三阶段推进：<br><br><strong>筹备期</strong>（前 '+tp.prep+' 天）<ul>'+li(tp.prepNodes)+'</ul><br><strong>执行期</strong>（中间 '+tp.exec+' 天）<ul>'+li(tp.execNodes)+'</ul><br><strong>收尾期</strong>（最后 '+tp.wrap+' 天）<ul>'+li(tp.wrapNodes)+'</ul></div></div>'
+        +'<div class="plan-divider"></div>'
+        +'<div class="plan-module"><div class="plan-module-title">人员配置</div><div class="plan-module-content">建议团队共 <strong style="color:#fff">'+pTotal+'</strong> 人：'+pers(pList)+'</div></div>'
+        +'<div class="plan-divider"></div>'
+        +'<div class="plan-module"><div class="plan-module-title">设备清单</div><div class="plan-module-content"><ul>'+li(eq)+'</ul></div></div>'
+        +'<div class="plan-divider"></div>'
+        +'<div class="plan-module"><div class="plan-module-title">预算分配</div><div class="plan-module-content">预估总预算 <strong style="color:#fff">'+mid+'万元</strong>（按中位数估算）<ul><li>场地：'+(mid*0.3).toFixed(1)+'万（30%）</li><li>设备：'+(mid*0.25).toFixed(1)+'万（25%）</li><li>人员：'+(mid*0.2).toFixed(1)+'万（20%）</li><li>物料：'+(mid*0.15).toFixed(1)+'万（15%）</li><li>应急：'+(mid*0.1).toFixed(1)+'万（10%）</li></ul></div></div>'
+        +'<div class="plan-divider"></div>'
+        +'<div class="plan-module"><div class="plan-module-title">增值建议</div><div class="plan-module-content"><ul>'+li(sug)+'</ul></div></div>'
+        +(note?'<div class="plan-divider"></div><div class="plan-module"><div class="plan-module-title">补充需求</div><div class="plan-module-content">'+note+'</div></div>':'')
+        +'<div class="plan-cta"><div class="plan-cta-text">以上为智能生成的初步方案</div><div class="plan-cta-phone">拨打 13311284244 获取定制化详细方案</div></div>'
+        +'</div>';
+    document.getElementById('planResult').innerHTML=html;
+}
 </script>
 
 </body>
