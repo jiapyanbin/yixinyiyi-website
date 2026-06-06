@@ -339,11 +339,14 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="search"],te
 .plan-cta{text-align:center;padding:20px;background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.12);border-radius:16px;margin-top:24px}
 .plan-cta-text{font-size:14px;color:var(--muted)}
 .plan-cta-phone{font-size:22px;font-weight:700;color:var(--gold);margin-top:8px;letter-spacing:1px}
+.plan-wechat-btn{display:inline-block;background:linear-gradient(135deg,#07C160,#06AD56);color:#fff;padding:14px 40px;border-radius:60px;text-decoration:none;font-size:16px;font-weight:600;letter-spacing:1px;box-shadow:0 8px 24px rgba(7,193,96,.3);transition:all .3s}
+.plan-wechat-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(7,193,96,.4)}
 @media(max-width:900px){
     .plan-layout{flex-direction:column}
     .plan-form{flex:unset;width:100%}
     .plan-result{width:100%;min-height:auto}
     .plan-result-placeholder{min-height:200px}
+    .plan-wechat-btn{width:100%;text-align:center;box-sizing:border-box}
 }
 
 /* ===== CONTACT ===== */
@@ -580,6 +583,10 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="search"],te
                     </select>
                 </div>
                 <div class="plan-form-group">
+                    <label class="plan-form-label">活动主题 <span style="color:var(--muted);font-weight:400;font-size:12px">（可选）</span></label>
+                    <input type="text" id="planTheme" placeholder="例如：2026社区新春联欢会">
+                </div>
+                <div class="plan-form-group">
                     <label class="plan-form-label">活动规模</label>
                     <select id="planScale">
                         <option value="">请选择活动规模</option>
@@ -807,10 +814,38 @@ const planDB={
         '党建活动':['LED屏','音响设备','展板展架','投影设备','签到系统','党建物料包']
     },
     personnel:{
-        '50人以下':[{role:'总监',count:1},{role:'策划',count:1},{role:'执行',count:1},{role:'灯光音响',count:1},{role:'摄影摄像',count:1},{role:'后勤',count:1}],
-        '50-200人':[{role:'总监',count:1},{role:'策划',count:2},{role:'执行',count:2},{role:'灯光音响',count:2},{role:'摄影摄像',count:1},{role:'后勤',count:2}],
-        '200-500人':[{role:'总监',count:1},{role:'策划',count:3},{role:'执行',count:4},{role:'灯光音响',count:3},{role:'摄影摄像',count:2},{role:'后勤',count:3}],
-        '500人以上':[{role:'总监',count:2},{role:'策划',count:4},{role:'执行',count:6},{role:'灯光音响',count:4},{role:'摄影摄像',count:3},{role:'后勤',count:5}]
+        '50人以下':[
+            {role:'项目总监',count:1,desc:'统筹全局，客户对接，关键节点决策'},
+            {role:'策划师',count:1,desc:'方案撰写，流程设计，创意输出'},
+            {role:'执行统筹',count:1,desc:'现场调度，供应商对接，物料管理'},
+            {role:'灯光音响师',count:1,desc:'灯光音响设备操控与调试'},
+            {role:'摄影师',count:1,desc:'活动全程影像记录'},
+            {role:'后勤保障',count:1,desc:'物资采购，餐饮安排，应急响应'}
+        ],
+        '50-200人':[
+            {role:'项目总监',count:1,desc:'统筹全局，客户对接，关键节点决策'},
+            {role:'策划师',count:2,desc:'方案撰写，流程设计，创意输出'},
+            {role:'执行统筹',count:2,desc:'现场调度，供应商对接，分区管理'},
+            {role:'灯光音响师',count:2,desc:'灯光音响设备操控与调试'},
+            {role:'摄影师',count:1,desc:'活动全程影像记录与直播推流'},
+            {role:'后勤保障',count:2,desc:'物资采购，餐饮安排，应急响应'}
+        ],
+        '200-500人':[
+            {role:'项目总监',count:1,desc:'统筹全局，客户对接，关键节点决策'},
+            {role:'策划师',count:3,desc:'方案撰写，流程设计，创意输出与内容把控'},
+            {role:'执行统筹',count:4,desc:'现场调度，供应商对接，分区管理与协调'},
+            {role:'灯光音响师',count:3,desc:'灯光音响设备操控、调试与现场调音'},
+            {role:'摄影师',count:2,desc:'多机位影像记录、航拍与直播推流'},
+            {role:'后勤保障',count:3,desc:'物资采购，餐饮安排，安保协调，应急响应'}
+        ],
+        '500人以上':[
+            {role:'项目总监',count:2,desc:'A/B角统筹全局，客户对接，关键节点决策'},
+            {role:'策划师',count:4,desc:'方案撰写，分模块流程设计，创意输出与内容把控'},
+            {role:'执行统筹',count:6,desc:'现场总调度，供应商对接，分区管理，志愿者协调'},
+            {role:'灯光音响师',count:4,desc:'灯光音响设备操控、调试、现场调音与备用方案'},
+            {role:'摄影师',count:3,desc:'多机位影像记录、航拍、直播推流与即时修图'},
+            {role:'后勤保障',count:5,desc:'物资采购，餐饮安排，安保协调，医疗急救，应急响应'}
+        ]
     },
     budgetMid:{'5万以下':3,'5-15万':10,'15-30万':22.5,'30万以上':40},
     suggestions:{
@@ -821,15 +856,169 @@ const planDB={
         '体育赛事':['建议安排开幕仪式提升仪式感','设置互动游戏区活跃现场气氛','配备医疗急救点保障参赛安全'],
         '党建活动':['建议融入红色文创元素增强教育效果','安排老党员访谈环节传承红色基因','制作活动纪念册强化党建成果']
     },
+    flowTimeline:{
+        '会展会议':[
+            {time:'08:00',desc:'设备进场与舞台搭建'},
+            {time:'09:30',desc:'签到系统调试'},
+            {time:'10:00',desc:'嘉宾签到入场'},
+            {time:'10:30',desc:'开幕致辞'},
+            {time:'11:00',desc:'主题演讲/圆桌对话'},
+            {time:'12:00',desc:'午餐交流'},
+            {time:'14:00',desc:'分论坛/专题研讨'},
+            {time:'16:00',desc:'茶歇与自由交流'},
+            {time:'17:00',desc:'活动总结与闭幕'}
+        ],
+        '非遗活动':[
+            {time:'08:00',desc:'展陈布置与道具就位'},
+            {time:'09:00',desc:'非遗传承人到位'},
+            {time:'09:30',desc:'观众签到入场'},
+            {time:'10:00',desc:'开幕表演'},
+            {time:'10:30',desc:'传承人现场演示'},
+            {time:'11:30',desc:'观众DIY体验环节'},
+            {time:'12:00',desc:'午休'},
+            {time:'14:00',desc:'非遗市集开放'},
+            {time:'15:00',desc:'互动教学工坊'},
+            {time:'16:30',desc:'作品展示与评比'},
+            {time:'17:00',desc:'活动结束'}
+        ],
+        '文艺演出':[
+            {time:'08:00',desc:'设备进场与舞台搭建'},
+            {time:'09:00',desc:'演员化妆与服装准备'},
+            {time:'10:00',desc:'现场全要素彩排'},
+            {time:'12:00',desc:'午餐休整'},
+            {time:'14:00',desc:'观众入场'},
+            {time:'14:30',desc:'暖场环节 / 正式开场'},
+            {time:'15:00',desc:'节目演出（上半场）'},
+            {time:'16:00',desc:'中场互动环节'},
+            {time:'16:30',desc:'节目演出（下半场）'},
+            {time:'17:00',desc:'谢幕与活动结束'}
+        ],
+        '摄影摄像':[
+            {time:'07:00',desc:'团队集合与设备检查'},
+            {time:'07:30',desc:'出发前往拍摄现场'},
+            {time:'08:00',desc:'到达现场，机位布置'},
+            {time:'08:30',desc:'灯光调试与试拍'},
+            {time:'09:00',desc:'正式拍摄（上午场）'},
+            {time:'12:00',desc:'午休与素材备份'},
+            {time:'14:00',desc:'下午场次拍摄'},
+            {time:'16:00',desc:'航拍与补拍镜头'},
+            {time:'17:00',desc:'收工整理，素材归档'}
+        ],
+        '体育赛事':[
+            {time:'07:00',desc:'场地布置与安全检查'},
+            {time:'08:00',desc:'裁判与工作人员到位'},
+            {time:'08:30',desc:'参赛者签到与热身'},
+            {time:'09:00',desc:'开幕仪式'},
+            {time:'09:30',desc:'预赛/小组赛开始'},
+            {time:'12:00',desc:'午休'},
+            {time:'14:00',desc:'淘汰赛/复赛阶段'},
+            {time:'16:00',desc:'决赛'},
+            {time:'17:00',desc:'颁奖典礼'},
+            {time:'17:30',desc:'活动结束'}
+        ],
+        '党建活动':[
+            {time:'08:00',desc:'场地布置与设备调试'},
+            {time:'08:30',desc:'参会人员签到入场'},
+            {time:'09:00',desc:'主题学习/专题党课'},
+            {time:'10:30',desc:'分组交流研讨'},
+            {time:'11:00',desc:'红色教育基地参访'},
+            {time:'12:00',desc:'午餐'},
+            {time:'14:00',desc:'知识竞赛/互动问答'},
+            {time:'15:30',desc:'老党员访谈与分享'},
+            {time:'16:30',desc:'总结发言与合影'},
+            {time:'17:00',desc:'活动结束'}
+        ]
+    },
+    checklist:{
+        '会展会议':[
+            '提前与场地方确认用电负荷与网络带宽，避免活动当天跳闸或断网',
+            '准备备用无线麦克风电池及翻页笔，确保主舞台设备零故障',
+            '安排专人对接嘉宾动线与签到流程，VIP嘉宾需单独引导'
+        ],
+        '非遗活动':[
+            '提前与非遗传承人确认演示所需材料与工具，预留备用耗材',
+            'DIY体验区需配备充足的操作台面与安全防护用品（手套、围裙等）',
+            '安排现场引导人员维持体验区秩序，避免拥挤造成安全隐患'
+        ],
+        '文艺演出':[
+            '提前与场地方确认用电负荷，避免灯光音响同时开启导致跳闸',
+            '准备备用无线麦克风电池及应急音源，确保演出不间断',
+            '安排专人对接演员动线与催场，后台区域需设置清晰指示牌'
+        ],
+        '摄影摄像':[
+            '提前踩点确认最佳拍摄机位与光线条件，制定备用拍摄方案',
+            '检查所有存储卡容量与备用电池数量，确保全天拍摄不间断',
+            '关注活动当天天气预报，户外拍摄需准备防雨防尘设备'
+        ],
+        '体育赛事':[
+            '配备专业医疗急救点及AED设备，确保参赛者安全',
+            '提前为所有参赛者购买赛事保险，降低意外风险',
+            '赛前全面检查场地设施（跑道、球门、围挡等），消除安全隐患'
+        ],
+        '党建活动':[
+            '做好全程影像记录与文字纪要，便于后续党建成果展示',
+            '提前制作活动手册与学习资料，确保参会人员人手一份',
+            '安排专人对接老党员，做好出行陪同与后勤保障'
+        ]
+    },
+    scaleDesc:{
+        '50人以下':'小型',
+        '50-200人':'中小型',
+        '200-500人':'中型',
+        '500人以上':'大型'
+    },
+    themeCore:{
+        '会展会议':'专业交流与行业洞察',
+        '非遗活动':'文化传承与社区融合',
+        '文艺演出':'舞台效果与观众互动体验',
+        '摄影摄像':'视觉叙事与品牌传播',
+        '体育赛事':'竞技精神与团队凝聚力',
+        '党建活动':'红色教育与品牌建设'
+    },
     timePlan(days){
         const d=Math.max(days,14);
-        const prep=Math.round(d*0.5),exec=Math.round(d*0.3),wrap=d-prep-exec;
-        return {
-            prep,exec,wrap,
-            prepNodes:['需求沟通与方案确认','场地勘察与合同签订','供应商筛选与设备预定','宣传物料设计与制作'],
-            execNodes:['活动现场搭建与设备调试','全流程彩排与流程确认','活动正式执行与现场调度','实时应急响应与流程把控'],
-            wrapNodes:['设备撤场与物资清点','活动影像资料整理交付','项目总结报告提交']
-        };
+        if(d>=21){
+            const s1=Math.round(d*0.22),s2=Math.round(d*0.22),s3=Math.round(d*0.33),s4=d-s1-s2-s3;
+            return [
+                {name:'筹备初期',days:s1,tag:'筹备',nodes:[
+                    'Day1-3：需求沟通与方案细化确认',
+                    'Day4-'+Math.round(s1/2)+'：场地勘察与供应商初步筛选',
+                    'Day'+(Math.round(s1/2)+1)+'-'+s1+'：合同签订与首批物料设计'
+                ]},
+                {name:'筹备冲刺',days:s2,tag:'筹备',nodes:[
+                    'Day'+(s1+1)+'-'+(s1+3)+'：宣传物料定稿与制作',
+                    'Day'+(s1+4)+'-'+(s1+Math.round(s2/2))+'：设备预定与人员排期确认',
+                    'Day'+(s1+Math.round(s2/2)+1)+'-'+(s1+s2)+'：志愿者/工作人员培训'
+                ]},
+                {name:'执行期',days:s3,tag:'执行',nodes:[
+                    'Day'+(s1+s2+1)+'：活动现场搭建与设备进场',
+                    'Day'+(s1+s2+2)+'：设备联调与全要素彩排',
+                    'Day'+(s1+s2+s3)+'：活动正式执行'
+                ]},
+                {name:'收尾期',days:s4,tag:'收尾',nodes:[
+                    'Day'+(d-1)+'：设备撤场与物资清点',
+                    'Day'+d+'：影像资料整理交付与项目总结'
+                ]}
+            ];
+        }else{
+            const s1=Math.round(d*0.45),s2=Math.round(d*0.33),s3=d-s1-s2;
+            return [
+                {name:'筹备期',days:s1,tag:'筹备',nodes:[
+                    'Day1-3：需求沟通与方案确认',
+                    'Day4-'+Math.round(s1/2)+'：场地勘察与合同签订',
+                    'Day'+(Math.round(s1/2)+1)+'-'+s1+'：设备预定与宣传物料设计'
+                ]},
+                {name:'执行期',days:s2,tag:'执行',nodes:[
+                    'Day'+(s1+1)+'：活动现场搭建与设备调试',
+                    'Day'+(s1+2)+'：全要素彩排与流程确认',
+                    'Day'+(s1+s2)+'：活动正式执行与现场调度'
+                ]},
+                {name:'收尾期',days:s3,tag:'收尾',nodes:[
+                    'Day'+(d-1)+'：设备撤场与物资清点',
+                    'Day'+d+'：影像资料整理交付与总结报告'
+                ]}
+            ];
+        }
     }
 };
 function generatePlan(){
@@ -838,34 +1027,56 @@ function generatePlan(){
     const budget=document.getElementById('planBudget').value;
     const dateVal=document.getElementById('planDate').value;
     const note=document.getElementById('planNote').value.trim();
+    const theme=document.getElementById('planTheme').value.trim();
     if(!type||!scale||!budget){alert('请填写活动类型、活动规模和预算范围');return;}
     const eq=planDB.equipment[type]||[];
     const pList=planDB.personnel[scale]||[];
     const mid=planDB.budgetMid[budget]||10;
     const sug=planDB.suggestions[type]||[];
+    const flow=planDB.flowTimeline[type]||[];
+    const check=planDB.checklist[type]||[];
+    const scaleDesc=planDB.scaleDesc[scale]||'';
+    const core=planDB.themeCore[type]||'';
     let days=30;
     if(dateVal){const td=new Date(),ed=new Date(dateVal+'T00:00:00');days=Math.ceil((ed-td)/(1000*60*60*24));if(days<1)days=1;}
-    const tp=planDB.timePlan(days);
+    const stages=planDB.timePlan(days);
     const pTotal=pList.reduce((s,i)=>s+i.count,0);
     const todayStr=new Date().toISOString().slice(0,10);
-    const overview=type+'全案策划方案';
+    let titleText,overviewText;
+    if(theme){
+        titleText='「'+theme+'」全案策划方案';
+        overviewText='本次「'+theme+'」定位为'+scaleDesc+'的'+type+'，预计到场'+scale+'，方案以'+core+'为核心，兼顾活动品质与执行效率。';
+    }else{
+        titleText=type+'全案策划方案';
+        overviewText='本次'+type+'定位为'+scaleDesc+'活动，预计到场'+scale+'，方案涵盖时间规划、人员配置、设备清单、流程动线及预算分配等关键模块，确保活动高效、有序、出彩落地。';
+    }
+    if(note){overviewText+=' 结合补充需求："'+note+'"，方案已做针对性调整。';}
     function li(items){return items.map(i=>'<li>'+i+'</li>').join('');}
-    function pers(items){return items.map(i=>i.role+' '+i.count+'人').join('、');}
-    const html='<div class="plan-result-card">'
+    let stagesHtml='';
+    stages.forEach(s=>{
+        stagesHtml+='<div style="margin-bottom:14px"><span style="display:inline-block;padding:3px 12px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.18);border-radius:12px;font-size:12px;color:var(--gold);margin-bottom:6px;letter-spacing:1px">'+s.tag+'</span> <strong style="color:#fff">'+s.name+'</strong>（'+s.days+'天）</div><ul style="margin-bottom:12px">'+li(s.nodes)+'</ul>';
+    });
+    let persHtml=pList.map(p=>'<li><strong style="color:#fff">'+p.role+'</strong>（'+p.count+'人）：'+p.desc+'</li>').join('');
+    let flowHtml=flow.map(f=>'<tr><td style="padding:4px 12px 4px 0;color:var(--gold);font-weight:600;white-space:nowrap;vertical-align:top">'+f.time+'</td><td style="padding:4px 0;color:var(--muted)">'+f.desc+'</td></tr>').join('');
+    let checkHtml=check.map((c,i)=>'<li>'+c+'</li>').join('');
+    let html='<div class="plan-result-card">'
         +'<div class="plan-card-header"><span class="plan-card-date">生成日期：'+todayStr+'</span><span class="plan-card-tag">'+type+'</span></div>'
-        +'<div class="plan-module"><div class="plan-module-title">方案概览</div><div class="plan-module-content">'+overview+'</div></div>'
+        +'<div class="plan-module"><div class="plan-module-title">方案概览</div><div class="plan-module-content"><strong style="color:#fff;font-size:15px">'+titleText+'</strong><br><br>'+overviewText+'</div></div>'
         +'<div class="plan-divider"></div>'
-        +'<div class="plan-module"><div class="plan-module-title">时间规划</div><div class="plan-module-content">距活动约 <strong style="color:#fff">'+days+'</strong> 天，分三阶段推进：<br><br><strong>筹备期</strong>（前 '+tp.prep+' 天）<ul>'+li(tp.prepNodes)+'</ul><br><strong>执行期</strong>（中间 '+tp.exec+' 天）<ul>'+li(tp.execNodes)+'</ul><br><strong>收尾期</strong>（最后 '+tp.wrap+' 天）<ul>'+li(tp.wrapNodes)+'</ul></div></div>'
+        +'<div class="plan-module"><div class="plan-module-title">时间规划</div><div class="plan-module-content">距活动约 <strong style="color:#fff">'+days+'</strong> 天，分 <strong style="color:#fff">'+stages.length+'</strong> 阶段推进：<br><br>'+stagesHtml+'</div></div>'
         +'<div class="plan-divider"></div>'
-        +'<div class="plan-module"><div class="plan-module-title">人员配置</div><div class="plan-module-content">建议团队共 <strong style="color:#fff">'+pTotal+'</strong> 人：'+pers(pList)+'</div></div>'
+        +'<div class="plan-module"><div class="plan-module-title">人员配置</div><div class="plan-module-content">建议团队共 <strong style="color:#fff">'+pTotal+'</strong> 人：<ul>'+persHtml+'</ul></div></div>'
         +'<div class="plan-divider"></div>'
         +'<div class="plan-module"><div class="plan-module-title">设备清单</div><div class="plan-module-content"><ul>'+li(eq)+'</ul></div></div>'
         +'<div class="plan-divider"></div>'
-        +'<div class="plan-module"><div class="plan-module-title">预算分配</div><div class="plan-module-content">预估总预算 <strong style="color:#fff">'+mid+'万元</strong>（按中位数估算）<ul><li>场地：'+(mid*0.3).toFixed(1)+'万（30%）</li><li>设备：'+(mid*0.25).toFixed(1)+'万（25%）</li><li>人员：'+(mid*0.2).toFixed(1)+'万（20%）</li><li>物料：'+(mid*0.15).toFixed(1)+'万（15%）</li><li>应急：'+(mid*0.1).toFixed(1)+'万（10%）</li></ul></div></div>'
+        +'<div class="plan-module"><div class="plan-module-title">流程动线（活动当日）</div><div class="plan-module-content"><table style="width:100%;border-collapse:collapse">'+flowHtml+'</table></div></div>'
+        +'<div class="plan-divider"></div>'
+        +'<div class="plan-module"><div class="plan-module-title">预算分配</div><div class="plan-module-content">预估总预算约 <strong style="color:#fff">'+mid+'万元</strong>（按中位数估算）：<ul><li><strong style="color:#fff">场地租赁</strong>：'+(mid*0.3).toFixed(1)+'万元（30%）— 含舞台搭建、场地布置与撤场</li><li><strong style="color:#fff">设备租赁</strong>：'+(mid*0.25).toFixed(1)+'万元（25%）— LED屏、音响、灯光、直播等设备</li><li><strong style="color:#fff">人员费用</strong>：'+(mid*0.2).toFixed(1)+'万元（20%）— 策划、执行、技术团队及临时人员</li><li><strong style="color:#fff">物料制作</strong>：'+(mid*0.15).toFixed(1)+'万元（15%）— 展板、印刷品、宣传物料、纪念品</li><li><strong style="color:#fff">应急储备</strong>：'+(mid*0.1).toFixed(1)+'万元（10%）— 不可预见支出与应急响应</li></ul></div></div>'
         +'<div class="plan-divider"></div>'
         +'<div class="plan-module"><div class="plan-module-title">增值建议</div><div class="plan-module-content"><ul>'+li(sug)+'</ul></div></div>'
-        +(note?'<div class="plan-divider"></div><div class="plan-module"><div class="plan-module-title">补充需求</div><div class="plan-module-content">'+note+'</div></div>':'')
-        +'<div class="plan-cta"><div class="plan-cta-text">以上为智能生成的初步方案</div><div class="plan-cta-phone">拨打 13311284244 获取定制化详细方案</div></div>'
+        +'<div class="plan-divider"></div>'
+        +'<div class="plan-module"><div class="plan-module-title">注意事项</div><div class="plan-module-content"><ul>'+checkHtml+'</ul></div></div>'
+        +'<div style="background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(201,168,76,.05));border:1px solid rgba(201,168,76,.25);border-radius:16px;padding:24px;text-align:center;margin-top:20px"><div style="font-size:15px;color:#fff;margin-bottom:6px;font-weight:600">获取详细报价与定制方案</div><div style="font-size:13px;color:var(--muted);margin-bottom:16px">以上为初步方案框架，扫码添加微信，获取完整执行方案与具体报价</div><a href="weixin://contacts/profile/13311284244" class="plan-wechat-btn">微信沟通具体报价</a><div style="font-size:12px;color:var(--muted);margin-top:12px">微信号：13311284244</div></div>'
         +'</div>';
     document.getElementById('planResult').innerHTML=html;
 }
